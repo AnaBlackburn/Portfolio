@@ -23,13 +23,13 @@ COUNT(work_interfere)*100/(SELECT COUNT(*) FROM [dbo].[JobMentalHealth]) AS Perc
 FROM [dbo].[JobMentalHealth]
 GROUP BY work_interfere
 
---Employees who have seeked mental health treatment and if their work provides mental health benefits
+--Employees who have sought mental health treatment and if their work provides mental health benefits
 SELECT benefits, COUNT(treatment) AS Number_of_People_who_Have_Sought_Mental_Health_Treatment
 FROM [dbo].[JobMentalHealth]
 WHERE treatment='Yes'
 GROUP BY benefits
 ORDER BY Number_of_People_who_Have_Sought_Mental_Health_Treatment DESC
---Answer: People are almost twice more likely to seek mental health treatment if their employer provides mental health benefits. 
+--Answer: People are almost twice as likely to seek mental health treatment if their employer provides mental health benefits. 
 --Since 36% of employees reported that their mental health interferes with their work, it's important to provide mental health benefits so employees get treatment.
 
 --How many employees feel like there will be consequences if they disclose physical vs mental health issues
@@ -38,4 +38,4 @@ COUNT(*)*100/(SELECT COUNT(*) FROM [dbo].[JobMentalHealth]) AS Percentage_of_Emp
 FROM [dbo].[JobMentalHealth]
 GROUP BY phys_health_consequence, mental_health_consequence
 ORDER BY 3 DESC
---Fourth highest percentage is employees who think there will be no consequences disclosing phyiscal health issues but there would be consequences if they disclose mental health issues
+--Fourth highest percentage is employees who think there will be no consequences disclosing physical health issues, but there would be consequences if they disclose mental health issues
